@@ -1,0 +1,15 @@
+<form [formGroup]="searchForm" (ngSubmit)="submitForm()" novalidate>
+  <mat-form-field class="search-input" [style.width]="searchWidth" [style.transition]="'0.4s'">
+    <mat-icon matPrefix class="input-icon">search</mat-icon>
+    <input matInput type="text" formControlName="search" [placeholder]="inputPlaceholder" (keyup)="applyFilter($event.target.value)">
+    <mat-error *ngIf="">
+      * Es wurden nur zahlen und Buchstaben erlaubt
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="select-input">
+    <mat-label>FHIR</mat-label>
+    <mat-select formControlName="fhir" >
+      <mat-option [value]="profile.value" *ngFor="let profile of fhirProfile | keyvalue">{{ profile.value }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
