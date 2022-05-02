@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PatientSearchService } from "../../../../search/services/patient-search.service";
-import {Observable, Subscription} from "rxjs";
+import { Subscription } from "rxjs";
 import { ActivatedRoute } from "@angular/router";
 import { IFhirPatient } from "@red-probeaufgabe/types";
 
@@ -13,7 +13,7 @@ export class PatientsComponent implements OnInit, OnDestroy {
 
   loading = true;
   onPatientSubscribtion: Subscription;
-  patient: Observable<IFhirPatient>;
+  patient: IFhirPatient;
   constructor(private readonly patientSearchService: PatientSearchService,
               private readonly activatedRouter: ActivatedRoute) { }
 
@@ -34,7 +34,7 @@ export class PatientsComponent implements OnInit, OnDestroy {
       const id = params['id'];
       if (id) {
         this.loading = true;
-        this.patient = await this.patientSearchService.findById(id);
+        this.patient = await this.patientSearchService.findById(id).toPromise();
       }
     })
 

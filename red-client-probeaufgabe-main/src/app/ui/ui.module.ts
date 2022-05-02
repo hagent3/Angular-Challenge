@@ -26,7 +26,7 @@ import { DialogDetailRowComponent } from './dialog-detail-row/dialog-detail-row.
 import { SearchFormComponent } from './search-form/search-form.component';
 import { FhirInfoComponent } from './fhir-info/fhir-info.component';
 import { PatientsComponent } from './fhir-info/components/patients/patients.component';
-import { PractitionFormComponent } from './fhir-info/components/practition-form/practition-form.component';
+import { PractitionerFormComponent } from './fhir-info/components/practition-form/practitioner-form.component';
 import {MatTabsModule} from "@angular/material/tabs";
 
 const MODULES = [
@@ -64,7 +64,7 @@ const COMPONENTS = [
   SearchFormComponent,
   FhirInfoComponent,
   PatientsComponent,
-  PractitionFormComponent
+  PractitionerFormComponent
 ]
 
 @NgModule({
